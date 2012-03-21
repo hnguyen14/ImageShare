@@ -22,5 +22,6 @@ app.configure "development", ->
 app.configure "production", ->
   app.use express.errorHandler()
 
-app.get "/", routes.index
+require('./routes/index')(app)
+
 app.listen 3000
