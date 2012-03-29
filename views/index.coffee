@@ -1,14 +1,12 @@
 h1 ->
-  "WHATEVER"
+  "File Upload"
 
-form 'span6 form-horizontal', id: 'pictureSubmit', action: '/pictures', method: 'post', ->
+form 'span6 form-horizontal', id: 'pictureSubmit', enctype: 'multipart/form-data', action: '/pictures', method: 'post', ->
   fieldset ->
-    legend ->
-      "Legend Text"
     div 'control-group', ->
-      label 'control-label', for: 'input01', ->
-        'Path'
+      label 'control-label', for: 'input0i2', ->
+        'Choose a file'
       div 'controls', ->
-        input 'input-xlarge', id: 'input01', type: 'text', name: 'path', ->
+        input 'input-large', id: 'input02', type: 'file', name: 'upload', ->
     div 'form-actions', ->
       input 'btn-primary', type: 'submit', value: 'Upload', ->

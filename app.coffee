@@ -1,12 +1,15 @@
-express = require("express")
-routes = require("./routes")
+express = require 'express'
+routes = require './routes'
 app = module.exports = express.createServer()
+
+
 
 app.configure ->
   app.set "views", __dirname + "/views"
   app.set "view engine", "coffee"
   app.register '.coffee', require('coffeekup').adapters.express
-  app.use express.bodyParser()
+  app.use express.bodyParser
+    uploadDir: '/Users/hnguyen/workspace/images'
   app.use express.methodOverride()
   app.use express.cookieParser()
   app.use express.session
