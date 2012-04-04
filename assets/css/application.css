@@ -9,3 +9,17 @@
 .btn-primary {
   margin: 0px 2px;
 }
+
+div.thumbnail .image {
+  max-width: 270px;
+}
+
+div.thumbnail {
+  margin: 5px;
+}
+
+#main {
+ margin-top: 40px;
+ width: 1400px;
+} 
+

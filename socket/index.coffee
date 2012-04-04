@@ -6,3 +6,6 @@ module.exports = (io) ->
     socket.on 'gallery:read', (data, callback) ->
       Picture.all callback
 
+  Picture.on 'create', (picture) ->
+    io.sockets.emit 'gallery:create', picture
+

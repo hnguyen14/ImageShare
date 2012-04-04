@@ -2,7 +2,10 @@ express = require 'express'
 routes = require './routes'
 
 app = module.exports = express.createServer()
+params = require 'express-params'
 io = require('socket.io').listen app
+
+params.extend app
 
 app.configure ->
   app.set "views", __dirname + "/views"

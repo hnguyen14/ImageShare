@@ -7,6 +7,8 @@ div '.navbar .navbar-fixed-top', ->
         li ->
           a '.image-upload', href:'#', -> 'Upload An Image'
 
+div '#main', ->
+
 div '.modal', id: 'imageUpload', ->
   form 'form-horizontal', id: 'pictureSubmit', enctype: 'multipart/form-data', action: '/pictures', method: 'post', ->
     div '.modal-header', ->
@@ -24,3 +26,8 @@ div '.modal', id: 'imageUpload', ->
       input '.btn-primary', type: 'submit', value: 'Upload', ->
 
 text js 'gallery'
+
+script '#picture-template', type: 'text/template', ->
+  a '.image-link', ->
+    img '.image', ->
+
