@@ -1,0 +1,64 @@
+.modal {
+  display: none;
+}
+
+.btn {
+  margin: 0px 2px;
+}
+
+.btn-primary {
+  margin: 0px 2px;
+}
+
+.image {
+  width: 100%;
+}
+
+.upload-image-preview {
+  display: none;
+  width: 270px;
+  border: 1px solid #CCC;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.upload-image-preview img{
+  width: 100%;
+}
+
+.image-link-container {
+  width: 95%;
+  margin: 5px auto;
+}
+
+.image-caption {
+  width: 250px;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-size: 125%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.picture {
+  border: 1px solid #CCC;
+  margin: 5px;
+  background-color: white;
+  -moz-box-shadow: 0px 2px 15px #333;
+  -webkit-box-shadow: 0px 2px 15px #333;
+  box-shadow: 0px 2px 15px #333;
+}
+
+.container {
+ width: 1160px;
+} 
+
+#main {
+  margin-top: 40px;
+}
+
+body {
+  background-image: url(/img/lime_green_canvas_seamless.jpg);
+  background-position: top left;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}

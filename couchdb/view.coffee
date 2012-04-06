@@ -8,6 +8,12 @@ module.exports = (db, done) ->
           map: (doc) ->
             if doc.type == 'Picture'
               emit doc._id, 1
+
+        tag:
+          map: (doc) ->
+            if doc.type == 'Picture'
+              for tag in doc.tags
+                emit tag, _id: doc._id
       , done
   ], (err, res) ->
     if err

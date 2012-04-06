@@ -1,4 +1,6 @@
 _ = require('underscore')._
+twitter = require 'twitter-text'
+
 EventEmitter = require('events').EventEmitter
 emitter = new EventEmitter()
 
@@ -12,10 +14,17 @@ module.exports = (db) ->
         return cb err if err
         cb null, (picture.doc for picture in pictures)
 
-    create: (path, cb) ->
+    forTag: (tagId, cb)->
+      db.view 'Picture/tag', {key: tagId, include_docs: true}, (err, pictures) ->
+        return cb err if err
+        cb null, (picture.doc for picture in pictures)
+
+    create: (path, caption, cb) ->
       doc =
         type: 'Picture'
         path: "/images/#{path.split('/')[5]}"
+        caption: caption
+        tags: twitter.extractHashtags caption
         createdAt: new Date()
         updatedAt: new Date()
 

@@ -7,7 +7,8 @@ div '.navbar .navbar-fixed-top', ->
         li ->
           a '.image-upload', href:'#', -> 'Upload An Image'
 
-div '#main', ->
+div '.container', ->
+  div '#main', ->
 
 div '.modal', id: 'imageUpload', ->
   form 'form-horizontal', id: 'pictureSubmit', enctype: 'multipart/form-data', action: '/pictures', method: 'post', ->
@@ -16,11 +17,18 @@ div '.modal', id: 'imageUpload', ->
       h3 -> 'Upload An Image'
     div '.modal-body', ->
       fieldset ->
-        div 'control-group', ->
-          label 'control-label', for: 'input0i2', ->
+        div '.control-group', ->
+          div '.upload-image-preview', ->
+            img id: 'uploadPreview', ->
+          label '.control-label', for: 'input01', ->
             'Choose a file'
-          div 'controls', ->
-            input 'input-large', id: 'input02', type: 'file', name: 'upload', ->
+          div '.controls', ->
+            input '.input-large', id: 'input01', type: 'file', name: 'upload', ->
+        div '.control-group', ->
+          label '.control-label', for: 'input02', ->
+            'Caption'
+          div '.controls', ->
+            input '.input-large', id: 'input02', type: 'text', name: 'caption', placeholder: 'Caption', ->
     div '.modal-footer', ->
       a '.btn', 'data-dismiss': 'modal', -> 'Close'
       input '.btn-primary', type: 'submit', value: 'Upload', ->
@@ -28,6 +36,9 @@ div '.modal', id: 'imageUpload', ->
 text js 'gallery'
 
 script '#picture-template', type: 'text/template', ->
-  a '.image-link', ->
-    img '.image', ->
+  div '.image-link-container', ->
+    a '.image-link', ->
+      img '.image', ->
+
+  div '.image-caption', ->
 

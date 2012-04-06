@@ -3,7 +3,7 @@ routes = require './routes'
 
 app = module.exports = express.createServer()
 params = require 'express-params'
-io = require('socket.io').listen app
+io = require('socket.io').listen app, {log: false}
 
 params.extend app
 
