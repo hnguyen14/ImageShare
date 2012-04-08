@@ -37,7 +37,7 @@ text js 'gallery'
 
 script '#picture-template', type: 'text/template', ->
   div '.image-link-container', ->
-    a '.image-link', ->
+    a '.image-link', title: '', ->
       img '.image', ->
 
   div '.image-caption', ->

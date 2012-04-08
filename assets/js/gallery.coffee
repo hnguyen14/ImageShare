@@ -3,9 +3,11 @@
 #= require backbone
 #= require backbone.iosync
 #= require backbone.iobind
+#= require imagesLoaded
+#= require jquery.masonry.min
 #= require twitter-text
 
-$ ->
+$ -
   window.socket = Backbone.socket = socket = io.connect()
 
   class App extends Backbone.Router
@@ -61,6 +63,8 @@ $ ->
     render: =>
       @$el.html $('#picture-template').html()
       @$('.image-link').attr('href',@model.get('path'))
+      @$('.image-link').attr('title', @model.get('caption'))
+      @$('.image-link').lightBox()
       @$('.image').attr('src', @model.get('path'))
       @$('.image-caption').html twttr.txt.autoLinkHashtags(@model.get('caption'), hashtagUrlBase: '/tag/')
       @
@@ -76,10 +80,15 @@ $ ->
 
     addPicture: (picture) =>
       @$el.prepend new PictureView(model: picture).el
+      @$el.imagesLoaded ->
+        if $('#gallery').data('masonry')
+          $('#gallery').masonry 'reload'
 
     render: =>
       @collection.each (picture) =>
         @addPicture picture
+      @$el.imagesLoaded ->
+        $('#gallery').masonry()
       @
 
   window.app = new App
@@ -88,10 +97,9 @@ $ ->
   $('a.image-upload').first().click ->
     $('#imageUpload').modal 'show'
 
-  $('a').live 'click', (e) ->
-    if e.currentTarget.host == window.location.host
-      e.preventDefault()
-      app.navigate e.currentTarget.pathname, trigger: true
+  $('a.hastag').live 'click', (e) ->
+    e.preventDefault()
+    app.navigate e.currentTarget.pathname, trigger: true
 
   $('#input01').change (e) ->
     input = $('#input01').get()
