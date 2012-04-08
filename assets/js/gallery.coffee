@@ -1,10 +1,11 @@
 #= require underscore
-#= require socket.io
 #= require backbone
 #= require backbone.iosync
 #= require backbone.iobind
 #= require imagesLoaded
 #= require jquery.masonry.min
+#= require moment.min
+#= require socket.io
 #= require twitter-text
 
 $ -
@@ -67,6 +68,8 @@ $ -
       @$('.image-link').lightBox()
       @$('.image').attr('src', @model.get('path'))
       @$('.image-caption').html twttr.txt.autoLinkHashtags(@model.get('caption'), hashtagUrlBase: '/tag/')
+      @$('.timestamp').attr('datetime', @model.get('updatedAt'))
+      @$('.timestamp').text new moment(@model.get('updatedAt')).fromNow()
       @
 
   class GalleryView extends Backbone.View
@@ -79,7 +82,10 @@ $ -
        @collection.bind 'add', @addPicture
 
     addPicture: (picture) =>
-      @$el.prepend new PictureView(model: picture).el
+      if picture.get('updatedAt') > $('#gallery .picture time').first().attr('datetime')
+        @$el.prepend new PictureView(model: picture).el
+      else
+        @$el.append new PictureView(model: picture).el
       @$el.imagesLoaded ->
         if $('#gallery').data('masonry')
           $('#gallery').masonry 'reload'
@@ -94,6 +100,7 @@ $ -
   window.app = new App
   Backbone.history.start pushState: true
 
+
   $('a.image-upload').first().click ->
     $('#imageUpload').modal 'show'
 
@@ -104,7 +111,6 @@ $ -
   $('#input01').change (e) ->
     input = $('#input01').get()
     if @.files && @.files[0]
-      console.log @.files[0]
       reader = new FileReader()
       reader.onload = (ev) ->
         $('#uploadPreview').attr('src', ev.target.result)

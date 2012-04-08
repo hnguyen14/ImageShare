@@ -6,5 +6,4 @@ module.exports = (app) ->
     res.render 'index'
 
   app.get '/tag/*', (req, res) ->
-    console.log 'IN TAG SHIT'
     res.render 'index'

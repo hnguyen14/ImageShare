@@ -5,5 +5,3 @@ module.exports = (app) ->
   app.post '/pictures', (req, res, next) ->
     Picture.create req.files.upload.path, req.body.caption, (err, picture) ->
       res.redirect '/'
-
-

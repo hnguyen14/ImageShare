@@ -1,12 +1,3 @@
-div '.navbar .navbar-fixed-top', ->
-  div '.navbar-inner', ->
-    div '.container', ->
-      a '.brand', href: '#', ->
-        'ImageShare'
-      ul '.nav', ->
-        li ->
-          a '.image-upload', href:'#', -> 'Upload An Image'
-
 div '.container', ->
   div '#main', ->
 
@@ -39,6 +30,6 @@ script '#picture-template', type: 'text/template', ->
   div '.image-link-container', ->
     a '.image-link', title: '', ->
       img '.image', ->
-
   div '.image-caption', ->
+  time '.timestamp', ->
 
