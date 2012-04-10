@@ -1,6 +1,7 @@
 module.exports = (app) ->
   require('./pictures')(app)
   require('./image')(app)
+  require('./authenticate')(app)
 
   app.get '/', (req, res) ->
     res.render 'index'

@@ -18,6 +18,7 @@ $ -
     routes:
       '': 'index'
       '/': 'index'
+      '_=_': 'index'
       'tag/:tagId': 'tag'
 
     tag: (tagId)->

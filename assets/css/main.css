@@ -1,3 +1,14 @@
+[class^='facebook-'] {
+  background-image: url("/img/facebook_sprite.png");
+}
+
+.facebook-login {
+  background-position: -48px -7px;
+  height: 22px;
+  width: 150px;
+  display: inline-block;
+}
+
 .modal {
   display: none;
 }
@@ -64,7 +75,7 @@
 } 
 
 #main {
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 .navbar-inner {
@@ -74,9 +85,23 @@
   background-repeat: repeat-x;
 }
 
-.navbar .nav li a.image-upload {
+.navbar .nav li a { 
   display: inline-block;
   color: #F8F4E4;
+}
+
+.logged-in-user {
+  font-weight: bold;
+}
+
+.navbar .nav li a.logout-link {
+  padding: 0;
+  margin-top: 8px;
+}
+
+.logged-in-user-image {
+  height: 25px;
+  margin-right: 5px;
 }
 
 body {

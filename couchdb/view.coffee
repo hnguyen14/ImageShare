@@ -15,6 +15,13 @@ module.exports = (db, done) ->
               for tag in doc.tags
                 emit tag, _id: doc._id
       , done
+    (done) ->
+      db.save '_design/User'
+        by_facebook_id:
+          map: (doc) ->
+            if doc.type == 'User'
+              emit doc.authHash.id, _id: doc._id
+      , done
   ], (err, res) ->
     if err
       console.log err
