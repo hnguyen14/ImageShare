@@ -14,10 +14,11 @@ html ->
         div '.container', ->
           a '.brand', href: '#', ->
             'ImageShare'
-          ul '.nav', ->
-            li ->
-              i '.icon-picture .icon-white', ->
-              a '.image-upload', href:'#', -> 'Upload An Image'
+          if @passport.user
+            ul '.nav', ->
+              li ->
+                i '.icon-picture .icon-white', ->
+                a '.image-upload', href:'#', -> 'Upload An Image'
           ul '.nav .pull-right', ->
             li ->
               if @passport.user
