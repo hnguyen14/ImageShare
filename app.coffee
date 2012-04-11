@@ -41,4 +41,4 @@ app.dynamicHelpers
     data.user = req.user?.authHash
     return data
 
-app.listen 3000
+module.exports = app
