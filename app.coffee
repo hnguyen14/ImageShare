@@ -21,8 +21,9 @@ app.configure ->
   app.use passport.initialize()
   app.use passport.session()
   app.use app.router
+  app.use express.compiler(src: __dirname + '/assets/js', dest: __dirname + '/public', enable: ['coffeescript'])
   app.use express.static(__dirname + "/public")
-  app.use require('connect-assets')()
+  app.use require('connect-assets')(build: true)
 
 app.configure "development", ->
   app.use express.errorHandler

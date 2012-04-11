@@ -4,10 +4,11 @@ html ->
     link rel: 'stylesheet', href: '/bootstrap/css/bootstrap.min.css'
     link rel: 'stylesheet', href: '/bootstrap/css/bootstrap-responsive.min.css'
     link rel: 'stylesheet', href: '/lightbox/css/jquery.lightbox-0.4.css'
-    text css 'main'
+    link rel: 'stylesheet', href: '/stylesheets/main.css'
     script src: '/javascripts/jquery-1.7.1.min.js'
     script src: '/lightbox/js/jquery.lightbox-0.4.js'
     script src: '/bootstrap/js/bootstrap.js'
+    script src: '/gallery.js'
   body ->
     div '.navbar .navbar-fixed-top', ->
       div '.navbar-inner', ->

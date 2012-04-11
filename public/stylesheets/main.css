@@ -1,0 +1,109 @@
+[class^='facebook-'] {
+  background-image: url("/img/facebook_sprite.png");
+}
+
+.facebook-login {
+  background-position: -48px -7px;
+  height: 22px;
+  width: 150px;
+  display: inline-block;
+}
+
+.modal {
+  display: none;
+}
+
+.btn {
+  margin: 0px 2px;
+}
+
+.btn-primary {
+  margin: 0px 2px;
+}
+
+.image {
+  width: 100%;
+}
+
+.upload-image-preview {
+  display: none;
+  width: 270px;
+  border: 1px solid #CCC;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.upload-image-preview img{
+  width: 100%;
+}
+
+.image-link-container {
+  width: 95%;
+  margin: 5px auto;
+}
+
+.image-caption {
+  width: 250px;
+  font-size: 13px;
+  padding: 5px 10px 0 10px;
+  margin-bottom: 5px;
+  color: #4E3F30;
+}
+
+.image-caption a {
+  color: #0CA5B0;
+}
+
+.timestamp {
+  color: #A5B3AA;
+  font-size: 11px;
+  padding: 0 10px 5px 0;
+  float: right;
+}
+
+.picture {
+  border: 1px solid #CCC;
+  margin: 8px 5px;
+  background-color: white;
+  -moz-box-shadow: 0px 2px 10px #333;
+  -webkit-box-shadow: 0px 2px 10px #333;
+  box-shadow: 0px 2px 10px #333;
+}
+
+.container {
+ width: 1128px;
+} 
+
+#main {
+  margin-top: 45px;
+}
+
+.navbar-inner {
+  background-image: -webkit-linear-gradient(top, #0CA5B0, #26818D);
+  background-image: -o-linear-gradient(top, #0CA5B0, #26818D);
+  background-image: linear-gradient(top, #0CA5B0, #26818D);
+  background-repeat: repeat-x;
+}
+
+.navbar .nav li a { 
+  display: inline-block;
+  color: #F8F4E4;
+}
+
+.logged-in-user {
+  font-weight: bold;
+}
+
+.navbar .nav li a.logout-link {
+  padding: 0;
+  margin-top: 8px;
+}
+
+.logged-in-user-image {
+  height: 25px;
+  margin-right: 5px;
+}
+
+body {
+  background-color: #FEFEEB;
+}

@@ -24,8 +24,6 @@ div '.modal', id: 'imageUpload', ->
       a '.btn', 'data-dismiss': 'modal', -> 'Close'
       input '.btn-primary', type: 'submit', value: 'Upload', ->
 
-text js 'gallery'
-
 script '#picture-template', type: 'text/template', ->
   div '.image-link-container', ->
     a '.image-link', title: '', ->

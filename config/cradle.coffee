@@ -14,6 +14,5 @@ options =
 server = new (cradle.Connection)(options)
 
 db = server.database database
-view db
 
 module.exports = db

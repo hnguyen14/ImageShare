@@ -8,7 +8,7 @@
 #= require socket.io
 #= require twitter-text
 
-$ -
+$ ->
   window.socket = Backbone.socket = socket = io.connect()
 
   class App extends Backbone.Router
