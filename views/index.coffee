@@ -19,7 +19,7 @@ div '.modal', id: 'imageUpload', ->
           label '.control-label', for: 'input02', ->
             'Caption'
           div '.controls', ->
-            input '.input-large', id: 'input02', type: 'text', name: 'caption', placeholder: 'Caption', ->
+            textarea '.input-large', id: 'input02', name: 'caption', placeholder: 'Caption', ->
     div '.modal-footer', ->
       a '.btn', 'data-dismiss': 'modal', -> 'Close'
       input '.btn-primary', type: 'submit', value: 'Upload', ->
@@ -30,6 +30,9 @@ script '#picture-template', type: 'text/template', ->
   div '.image-link-container', ->
     a '.image-link', title: '', ->
       img '.image', ->
-  div '.image-caption', ->
+  img '.poster-image', src: '', ->
+  div '.poster-comment', ->
+    a '.poster-name', ->
+    div '.image-caption', ->
   time '.timestamp', ->
 

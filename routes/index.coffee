@@ -8,3 +8,6 @@ module.exports = (app) ->
 
   app.get '/tag/*', (req, res) ->
     res.render 'index'
+
+  app.get '/user/*', (req, res) ->
+    res.render 'index'
