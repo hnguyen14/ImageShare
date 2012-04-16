@@ -1,15 +1,19 @@
 cradle = require 'cradle'
 view = require '../couchdb/view'
+url = require 'url'
 
 database = process.env.DATABASE
 database += "_#{process.env.ENV}" unless process.env.ENV == 'production'
 
-database = 'imageshare_development'
-
-options =
-  host: 'http://localhost'
-  port: 5984
-  cache: true
+cloudantUrl = process.env.CLOUDANT_URL || "http://localhost:5984/#{database}"
+cloudant = url.parse cloudantUrl
+options = {}
+options.host = "#{cloudant.protocol}//#{cloudant.hostname}"
+options.port = cloudant.port || if 'https:' == cloudant.protocol then 443 else 80
+if cloudant.auth
+  options.auth =
+    username: cloudant.auth.split(':')[0]
+    password: cloudant.auth.split(':')[1]
 
 server = new (cradle.Connection)(options)
 
