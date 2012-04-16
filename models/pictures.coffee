@@ -19,7 +19,12 @@ module.exports = (db) ->
         return cb err if err
         cb null, (picture.doc for picture in pictures)
 
-    create: (path, caption, cb) ->
+    forUser: (userId, cb)->
+      db.view 'Picture/user', {key: userId, include_docs: true}, (err, pictures) ->
+        return cb err if err
+        cb null, (picture.doc for picture in pictures)
+
+    create: (user, path, caption, cb) ->
       doc =
         type: 'Picture'
         path: "/images/#{path.split('/')[5]}"
@@ -27,6 +32,11 @@ module.exports = (db) ->
         tags: twitter.extractHashtags caption
         createdAt: new Date()
         updatedAt: new Date()
+
+      if user
+        doc.user =
+          id: user.authHash.id
+          displayName: user.authHash.displayName
 
       db.save doc, (err, res) ->
         return cb err if err

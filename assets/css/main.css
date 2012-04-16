@@ -1,3 +1,14 @@
+[class^='facebook-'] {
+  background-image: url("/img/facebook_sprite.png");
+}
+
+.facebook-login {
+  background-position: -48px -7px;
+  height: 22px;
+  width: 150px;
+  display: inline-block;
+}
+
 .modal {
   display: none;
 }
@@ -28,18 +39,34 @@
 
 .image-link-container {
   width: 95%;
-  margin: 5px auto;
+  margin: 5px auto 15px auto;
 }
 
 .image-caption {
-  width: 250px;
   font-size: 13px;
-  padding: 5px 10px 0 10px;
   margin-bottom: 5px;
   color: #4E3F30;
 }
 
 .image-caption a {
+  color: #0CA5B0;
+}
+
+.poster-image {
+  display: inline-block;
+  margin-left: 7px;
+  float: left;
+  width: 35px;
+}
+
+.poster-comment {
+  float: left;
+  margin-left: 8px;
+  width: 214px;
+}
+
+.poster-comment .poster-name {
+  font-weight: bold;
   color: #0CA5B0;
 }
 
@@ -60,11 +87,11 @@
 }
 
 .container {
- width: 1160px;
+ width: 1128px;
 } 
 
 #main {
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 .navbar-inner {
@@ -74,9 +101,23 @@
   background-repeat: repeat-x;
 }
 
-.navbar .nav li a.image-upload {
+.navbar .nav li a { 
   display: inline-block;
   color: #F8F4E4;
+}
+
+.logged-in-user {
+  font-weight: bold;
+}
+
+.navbar .nav li a.logout-link {
+  padding: 0;
+  margin-top: 8px;
+}
+
+.logged-in-user-image {
+  height: 25px;
+  margin-right: 5px;
 }
 
 body {

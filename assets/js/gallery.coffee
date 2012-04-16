@@ -18,7 +18,17 @@ $ -
     routes:
       '': 'index'
       '/': 'index'
+      '_=_': 'index'
       'tag/:tagId': 'tag'
+      'user/:userId': 'user'
+
+    user: (userId)->
+      @galleryView?.remove()
+      @gallery = new Gallery(userId: userId)
+      @galleryView = new GalleryView(collection: @gallery)
+      $('#main').append @galleryView.el
+      @gallery.fetch()
+
 
     tag: (tagId)->
       @galleryView?.remove()
@@ -67,6 +77,9 @@ $ -
       @$('.image-link').attr('title', @model.get('caption'))
       @$('.image-link').lightBox()
       @$('.image').attr('src', @model.get('path'))
+      @$('.poster-image').attr 'src', "https://graph.facebook.com/#{@model.get('user').id}/picture"
+      @$('.poster-name').text @model.get('user').displayName
+      @$('.poster-name').attr 'href', "/user/#{@model.get('user').id}"
       @$('.image-caption').html twttr.txt.autoLinkHashtags(@model.get('caption'), hashtagUrlBase: '/tag/')
       @$('.timestamp').attr('datetime', @model.get('updatedAt'))
       @$('.timestamp').text new moment(@model.get('updatedAt')).fromNow()
