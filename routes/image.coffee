@@ -2,7 +2,7 @@ fs = require 'fs'
 
 module.exports = (app) ->
   app.get '/images/:id', (req, res) ->
-    fs.readFile "/Users/hnguyen/workspace/images/#{req.params.id}", (err, data) ->
+    fs.readFile "#{process.env.UPLOAD_DIR}/#{req.params.id}", (err, data) ->
       if err
         res.send 'Not found', 404
         return
