@@ -73,10 +73,10 @@ $ -
 
     render: =>
       @$el.html $('#picture-template').html()
-      @$('.image-link').attr('href',@model.get('path'))
+      @$('.image-link').attr('href',@model.get('resizedPath'))
       @$('.image-link').attr('title', @model.get('caption'))
       @$('.image-link').lightBox()
-      @$('.image').attr('src', @model.get('path'))
+      @$('.image').attr('src', @model.get('thumbnailPath'))
       @$('.poster-image').attr 'src', "https://graph.facebook.com/#{@model.get('user').id}/picture"
       @$('.poster-name').text @model.get('user').displayName
       @$('.poster-name').attr 'href', "/user/#{@model.get('user').id}"

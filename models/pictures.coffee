@@ -24,10 +24,12 @@ module.exports = (db) ->
         return cb err if err
         cb null, (picture.doc for picture in pictures)
 
-    create: (user, path, caption, cb) ->
+    create: (user, fullsize, resized, thumbnail, caption, cb) ->
       doc =
         type: 'Picture'
-        path: "/images/#{path.split('/')[5]}"
+        fullsizePath: "/images#{fullsize.substring(fullsize.lastIndexOf('/'), fullsize.length)}"
+        resizedPath: "/images#{resized.substring(resized.lastIndexOf('/'), resized.length)}"
+        thumbnailPath: "/images#{thumbnail.substring(thumbnail.lastIndexOf('/'), thumbnail.length)}"
         caption: caption
         tags: twitter.extractHashtags caption
         createdAt: new Date()
