@@ -8,8 +8,10 @@
 #= require socket.io
 #= require twitter-text
 
-$ -
+$ ->
   window.socket = Backbone.socket = socket = io.connect()
+
+  dataFetchOptions = {}
 
   class App extends Backbone.Router
     initialize: =>
@@ -23,26 +25,25 @@ $ -
       'user/:userId': 'user'
 
     user: (userId)->
-      @galleryView?.remove()
-      @gallery = new Gallery(userId: userId)
-      @galleryView = new GalleryView(collection: @gallery)
-      $('#main').append @galleryView.el
-      @gallery.fetch()
+      dataFetchOptions = userId: userId
+      @main()
 
 
     tag: (tagId)->
+      dataFetchOptions = tagId: tagId
+      @main()
+
+    index: ->
+      dataFetchOptions = {}
+      @main()
+
+    main: ->
       @galleryView?.remove()
-      @gallery = new Gallery(tagId: tagId)
+      @gallery = new Gallery(dataFetchOptions)
       @galleryView = new GalleryView(collection: @gallery)
       $('#main').append @galleryView.el
       @gallery.fetch()
 
-    index: ->
-      @galleryView?.remove()
-      @gallery = new Gallery()
-      @galleryView = new GalleryView(collection: @gallery)
-      $('#main').append @galleryView.el
-      @gallery.fetch()
 
   class Picture extends Backbone.Model
     idAttribute: '_id'
@@ -131,3 +132,12 @@ $ -
           $('.upload-image-preview').show 500, ->
       reader.readAsDataURL @.files[0]
 
+  $(window).scroll _.throttle ->
+    if $(window).scrollTop() == $(document).height() - $(window).height()
+      _.extend dataFetchOptions, startkey: app.gallery.models[app.gallery.models.length - 1].get('key')
+      console.log dataFetchOptions
+      app.gallery.fetch
+        data: [dataFetchOptions]
+        add: true
+        success: (collections, response) ->
+          console.log 'scrolling at bottom', JSON.stringify dataFetchOptions

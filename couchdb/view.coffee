@@ -7,18 +7,18 @@ module.exports = (db, done) ->
         all:
           map: (doc) ->
             if doc.type == 'Picture'
-              emit doc._id, 1
+              emit [doc.updatedAt, doc._id], _id: doc._id
 
         tag:
           map: (doc) ->
             if doc.type == 'Picture'
               for tag in doc.tags
-                emit tag, _id: doc._id
+                emit [tag, doc.updatedAt], _id: doc._id
 
         user:
           map: (doc) ->
             if doc.type == 'Picture' && doc.user
-              emit doc.user.id, _id: doc._id
+              emit [doc.user.id, doc.updatedAt], _id: doc._id
       , done
     (done) ->
       db.save '_design/User'

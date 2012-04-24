@@ -3,8 +3,8 @@ db = require './cradle'
 FacebookStrategy = require('passport-facebook').Strategy
 User = require('../models/users')(db)
 
-FACEBOOK_APP_ID = '211550688954395'
-FACEBOOK_APP_SECRET = '96d9c72cbd0edf57440d44cd2956bdc9'
+FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID
+FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET
 
 passport.use new FacebookStrategy(
   clientID: FACEBOOK_APP_ID

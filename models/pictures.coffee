@@ -9,20 +9,36 @@ module.exports = (db) ->
     on: (event, listener) ->
       emitter.on event, listener
 
-    all: (cb)->
-      db.view 'Picture/all', {include_docs: true}, (err, pictures) ->
-        return cb err if err
-        cb null, (picture.doc for picture in pictures)
+    fetch: (param, cb) ->
+      view = 'Picture/all'
+      if param?.tagId
+        view = 'Picture/tag'
+        defaultId = param.tagId
+      else if param?.userId
+        view = 'Picture/user'
+        defaultId = param.userId
+      options =
+        include_docs: true
+        descending: true
+        limit: 20
+      if param?.startkey
+        options.startkey = param.startkey
+      else if defaultId
+        options.startkey = [
+          defaultId
+          {}
+        ]
+        options.endkey = [
+          defaultId
+        ]
 
-    forTag: (tagId, cb)->
-      db.view 'Picture/tag', {key: tagId, include_docs: true}, (err, pictures) ->
+      db.view view, options, (err, res) ->
         return cb err if err
-        cb null, (picture.doc for picture in pictures)
-
-    forUser: (userId, cb)->
-      db.view 'Picture/user', {key: userId, include_docs: true}, (err, pictures) ->
-        return cb err if err
-        cb null, (picture.doc for picture in pictures)
+        pictures = []
+        for result in res
+          result.doc.key = result.key
+          pictures.push result.doc
+        cb null, pictures
 
     create: (user, fullsize, resized, thumbnail, caption, cb) ->
       doc =
