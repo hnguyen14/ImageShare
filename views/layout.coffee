@@ -14,8 +14,9 @@ html ->
         div '.container', ->
           a '.brand', href: '/', ->
             'iShareMyPic'
-          ul '.nav', ->
+          ul '.nav.nav-links', ->
             li ->
+              i '.icon-home .icon-white', ->
               a '.home', href: '/', ->
                 'Home'
             if @passport.user

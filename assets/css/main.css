@@ -105,9 +105,17 @@
   background-repeat: repeat-x;
 }
 
-.navbar .nav li a { 
+.navbar .nav.nav-links li {
+  opacity: 0.6;
+}
+
+.navbar .nav.nav-links li:hover {
+  opacity: 1;
+}
+
+.navbar .nav li a{ 
   display: inline-block;
-  color: #F8F4E4;
+  color: white;
 }
 
 .logged-in-user {
