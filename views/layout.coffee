@@ -12,7 +12,7 @@ html ->
     div '.navbar .navbar-fixed-top', ->
       div '.navbar-inner', ->
         div '.container', ->
-          a '.brand', href: '#', ->
+          a '.brand.home', href: '/', ->
             'iShareMyPic'
           if @passport.user
             ul '.nav', ->
