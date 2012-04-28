@@ -12,10 +12,13 @@ html ->
     div '.navbar .navbar-fixed-top', ->
       div '.navbar-inner', ->
         div '.container', ->
-          a '.brand.home', href: '/', ->
+          a '.brand', href: '/', ->
             'iShareMyPic'
-          if @passport.user
-            ul '.nav', ->
+          ul '.nav', ->
+            li ->
+              a '.home', href: '/', ->
+                'Home'
+            if @passport.user
               li ->
                 i '.icon-picture .icon-white', ->
                 a '.image-upload', href:'#', -> 'Upload An Image'
