@@ -1,5 +1,14 @@
 div '.container', ->
   div '#main', ->
+    div '.ribbon-wrapper', ->
+      div '.ribbon-front', ->
+        div '.ribbon-data-container', ->
+      div '.ribbon-edge-topleft', ->
+      div '.ribbon-edge-topright', ->
+      div '.ribbon-edge-bottomleft', ->
+      div '.ribbon-edge-bottomright', ->
+      div '.ribbon-back-left', ->
+      div '.ribbon-back-right', ->
 
 div '.modal', id: 'imageUpload', ->
   form 'form-horizontal', id: 'pictureSubmit', enctype: 'multipart/form-data', action: '/pictures', method: 'post', ->

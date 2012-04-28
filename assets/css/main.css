@@ -43,16 +43,17 @@
 }
 
 .image-caption {
+  line-height: 25px;
   font-size: 13px;
   margin-bottom: 5px;
-  color: #4E3F30;
+  color: #3D1C00;
 }
 
 .image-caption a {
-  color: #0CA5B0;
+  color: #86B8B1;
 }
 
-.poster-image {
+.thumbnail img.poster-image {
   display: inline-block;
   margin-left: 7px;
   float: left;
@@ -67,7 +68,7 @@
 
 .poster-comment .poster-name {
   font-weight: bold;
-  color: #0CA5B0;
+  color: #86B8B1;
 }
 
 .timestamp {
@@ -79,25 +80,26 @@
 
 .picture {
   border: 1px solid #CCC;
-  margin: 8px 5px;
+  margin: 10px 10px;
   background-color: white;
-  -moz-box-shadow: 0px 2px 10px #333;
-  -webkit-box-shadow: 0px 2px 10px #333;
-  box-shadow: 0px 2px 10px #333;
 }
 
 .container {
- width: 1128px;
+ width: 1240px;
 } 
 
 #main {
-  margin-top: 45px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  background-color: #F2D694;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .navbar-inner {
-  background-image: -webkit-linear-gradient(top, #0CA5B0, #26818D);
-  background-image: -o-linear-gradient(top, #0CA5B0, #26818D);
-  background-image: linear-gradient(top, #0CA5B0, #26818D);
+  background-image: -webkit-linear-gradient(top, #86B8B1, #77A49E); 
+  background-image: -o-linear-gradient(top, #86B8B1, #77A49E);
+  background-image: linear-gradient(top, #86B8B1, #77A49E);
   background-repeat: repeat-x;
 }
 
@@ -120,6 +122,113 @@
   margin-right: 5px;
 }
 
-body {
-  background-color: #FEFEEB;
+/* ribbon style */
+.ribbon-wrapper {
+  display: none;
+  position: relative;
+  margin-bottom: 10px;
+  border-top: px solid #ccc;
+  -moz-border-bottom-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+  -webkit-border-bottom-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+  -moz-border-top-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+  -webkit-border-top-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+}
+
+.ribbon-front {
+  background-color: #9C3C3E;
+  height: 50px;
+  color: #FFF;
+  font-weight: bold;
+  padding: 5px 40px;
+  width: 440px;
+  position: relative;
+  left:-30px;
+  z-index: 2;
+}
+
+.ribbon-front img {
+  margin: 3px 20px 0 0;
+  width: 40px;
+  border: 2px solid #F2D694;
+}
+
+.ribbon-front span{
+  font-size: 30px;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.ribbon-front,
+.ribbon-back-left,
+.ribbon-back-right
+{
+  -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  -khtml-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  -o-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+}
+
+.ribbon-edge-topleft,
+.ribbon-edge-topright,
+.ribbon-edge-bottomleft,
+.ribbon-edge-bottomright {
+  position: absolute;
+  z-index: 1;
+  border-style:solid;
+  height:0px;
+  width:0px;
+}
+
+.ribbon-edge-topleft,
+.ribbon-edge-topright {
+}
+
+.ribbon-edge-bottomleft,
+.ribbon-edge-bottomright {
+  top: 60px;
+}
+
+.ribbon-edge-topleft,
+.ribbon-edge-bottomleft {
+  left: -30px;
+  border-color: transparent #8C2328 transparent transparent;
+}
+
+.ribbon-edge-topleft {
+  top: 0px;
+  border-width: 0px 10px 0 0;
+}
+.ribbon-edge-bottomleft {
+  border-width: 0 10px 10px 0;
+}
+
+.ribbon-edge-topright,
+.ribbon-edge-bottomright {
+  left: 400px;
+  border-color: transparent transparent transparent #8C2328;
+}
+
+.ribbon-edge-topright {
+  top: 0px;
+  border-width: 0px 0 0 0px;
+}
+.ribbon-edge-bottomright {
+  border-width: 0 0 0px 0px;
+}
+
+.ribbon-back-left {
+  position: absolute;
+  top: 10px;
+  left: -50px;
+  width: 30px;
+  height: 60px;
+  background-color: #9C3C3E;	z-index: 0;
+}
+
+.ribbon-back-right {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0px;
+  height: 60px;
+  z-index: 0;
 }

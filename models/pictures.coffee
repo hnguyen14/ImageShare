@@ -20,7 +20,7 @@ module.exports = (db) ->
       options =
         include_docs: true
         descending: true
-        limit: 20
+        limit: 30
       if param?.startkey
         options.startkey = param.startkey
       else if defaultId

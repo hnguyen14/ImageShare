@@ -6,21 +6,16 @@ module.exports = (db) ->
         cb null, user
 
     findOrCreate: (profile, cb) ->
-      User.findByFacebookId profile.id, profile, (err, user) ->
+      User.findByFacebookId profile.id, (err, user) ->
         return cb err if err
-        cb null, user
-
-    findByFacebookId: (facebookId, profile, cb) ->
-      db.view 'User/by_facebook_id', include_docs: true, (err, res) ->
-        return cb err if err
-        if res[0]
-          doc = res[0].doc
-          doc.authHash = profile
-          doc.updatedAt = new Date()
-          db.save doc, (err, res) ->
+        if user
+          if profile
+            user.authHash = profile
+          user.updatedAt = new Date()
+          db.save user, (err, res) ->
             return cb err if err
-            doc._rev = res.rev
-            cb null, doc
+            user._rev = res.rev
+            cb null, user
         else
           doc =
             type: 'User'
@@ -32,4 +27,9 @@ module.exports = (db) ->
             doc._id = doc.id
             doc._rev = doc.rev
             cb null, doc
+
+    findByFacebookId: (facebookId, cb) ->
+      db.view 'User/by_facebook_id', {startkey: facebookId, include_docs: true}, (err, res) ->
+        return cb err if err
+        cb null, res[0]?.doc
   User

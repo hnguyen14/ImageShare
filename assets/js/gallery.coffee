@@ -25,15 +25,22 @@ $ ->
       'user/:userId': 'user'
 
     user: (userId)->
+      socket.emit 'user:read', {id: userId}, (err, res) ->
+        unless err
+          $('.ribbon-data-container').html "<img class='.ribbon-user-img' src='https://graph.facebook.com/#{userId}/picture'/><span>#{res.authHash.displayName}</span>"
+          $('.ribbon-wrapper').show()
       dataFetchOptions = userId: userId
       @main()
 
 
     tag: (tagId)->
+      $('.ribbon-data-container').html "<span class='.ribbon-tag-id'>##{tagId}</span>"
+      $('.ribbon-wrapper').show()
       dataFetchOptions = tagId: tagId
       @main()
 
     index: ->
+      $('.ribbon-wrapper').hide()
       dataFetchOptions = {}
       @main()
 
@@ -66,7 +73,7 @@ $ ->
 
   class PictureView extends Backbone.View
     tagName: 'div'
-    className: 'span3 picture'
+    className: 'span3 picture thumbnail'
 
     initialize: =>
        @model.bind 'change', @change
@@ -118,7 +125,7 @@ $ ->
   $('a.image-upload').first().click ->
     $('#imageUpload').modal 'show'
 
-  $('a.hastag').live 'click', (e) ->
+  $('a.hashtag, a.poster-name, a.image-link').live 'click', (e) ->
     e.preventDefault()
     app.navigate e.currentTarget.pathname, trigger: true
 
@@ -135,9 +142,7 @@ $ ->
   $(window).scroll _.throttle ->
     if $(window).scrollTop() == $(document).height() - $(window).height()
       _.extend dataFetchOptions, startkey: app.gallery.models[app.gallery.models.length - 1].get('key')
-      console.log dataFetchOptions
       app.gallery.fetch
         data: [dataFetchOptions]
         add: true
         success: (collections, response) ->
-          console.log 'scrolling at bottom', JSON.stringify dataFetchOptions

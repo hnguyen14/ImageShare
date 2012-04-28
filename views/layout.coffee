@@ -1,6 +1,6 @@
 html ->
   head ->
-    title 'ImageShare'
+    title 'iShareMyPic - Inspiration for the travel enthusiast'
     link rel: 'stylesheet', href: '/bootstrap/css/bootstrap.min.css'
     link rel: 'stylesheet', href: '/bootstrap/css/bootstrap-responsive.min.css'
     link rel: 'stylesheet', href: '/lightbox/css/jquery.lightbox-0.4.css'
@@ -13,7 +13,7 @@ html ->
       div '.navbar-inner', ->
         div '.container', ->
           a '.brand', href: '#', ->
-            'ImageShare'
+            'iShareMyPic'
           if @passport.user
             ul '.nav', ->
               li ->
