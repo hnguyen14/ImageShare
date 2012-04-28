@@ -109,13 +109,15 @@ $ ->
         @$el.append new PictureView(model: picture).el
       @$el.imagesLoaded ->
         if $('#gallery').data('masonry')
-          $('#gallery').masonry 'reload'
+          $('#gallery').masonry 'reload',
+            isAnimated: true
 
     render: =>
       @collection.each (picture) =>
         @addPicture picture
       @$el.imagesLoaded ->
-        $('#gallery').masonry()
+        $('#gallery').masonry
+          isAnimated: true
       @
 
   window.app = new App
