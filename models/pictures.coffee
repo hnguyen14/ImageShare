@@ -13,7 +13,7 @@ module.exports = (db) ->
       view = 'Picture/all'
       if param?.tagId
         view = 'Picture/tag'
-        defaultId = param.tagId
+        defaultId = decodeURI(param.tagId)
       else if param?.userId
         view = 'Picture/user'
         defaultId = param.userId

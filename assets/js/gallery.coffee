@@ -35,7 +35,7 @@ $ ->
 
 
     tag: (tagId)->
-      $('.ribbon-data-container').html "<span class='.ribbon-tag-id'>##{tagId}</span>"
+      $('.ribbon-data-container').html "<span class='.ribbon-tag-id'>##{decodeURI(tagId)}</span>"
       $('.ribbon-wrapper').show()
       dataFetchOptions = tagId: tagId
       @main()
