@@ -25,6 +25,7 @@ $ ->
       'user/:userId': 'user'
 
     user: (userId)->
+      $('.ribbon-wrapper').hide()
       socket.emit 'user:read', {id: userId}, (err, res) ->
         unless err
           $('.ribbon-data-container').html "<img class='.ribbon-user-img' src='https://graph.facebook.com/#{userId}/picture'/><span>#{res.authHash.displayName}</span>"

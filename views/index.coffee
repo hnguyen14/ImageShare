@@ -9,6 +9,13 @@ div '.container', ->
       div '.ribbon-edge-bottomright', ->
       div '.ribbon-back-left', ->
       div '.ribbon-back-right', ->
+  div '.hero-unit.footer', ->
+    p ->
+      img '.email', src: '/email-icon.png', ->
+      '@ admin@iShareMyPic.com'
+    p ->
+      img '.twitter', src: '/twitter-icon.png', ->
+      '@ iShareMyPic'
 
 div '.modal', id: 'imageUpload', ->
   form 'form-horizontal', id: 'pictureSubmit', enctype: 'multipart/form-data', action: '/pictures', method: 'post', ->

@@ -127,6 +127,23 @@
   margin-top: 8px;
 }
 
+.hero-unit.footer {
+  background-image: -webkit-linear-gradient(top, #86B8B1, #77A49E); 
+  background-image: -moz-linear-gradient(top, #86B8B1, #77A49E); 
+  background-image: -o-linear-gradient(top, #86B8B1, #77A49E);
+  background-image: linear-gradient(top, #86B8B1, #77A49E);
+  background-repeat: repeat-x;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-unit.footer p {
+  display: inline-block;
+  color: white;
+  margin: 0 10px;
+}
+
 .logged-in-user-image {
   height: 25px;
   margin-right: 5px;
