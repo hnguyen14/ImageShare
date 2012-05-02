@@ -24,13 +24,10 @@ module.exports = (db) ->
       if param?.startkey
         options.startkey = param.startkey
       else if defaultId
-        options.startkey = [
-          defaultId
-          {}
-        ]
-        options.endkey = [
-          defaultId
-        ]
+        options.startkey = [defaultId,{}]
+
+      if options.startkey
+        options.endkey = [defaultId] if defaultId
 
       db.view view, options, (err, res) ->
         return cb err if err

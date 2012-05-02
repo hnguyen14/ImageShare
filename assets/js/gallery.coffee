@@ -144,8 +144,12 @@ $ ->
 
   $(window).scroll _.throttle ->
     if $(window).scrollTop() == $(document).height() - $(window).height()
-      _.extend dataFetchOptions, startkey: app.gallery.models[app.gallery.models.length - 1].get('key')
+      startkey = app.gallery.models[app.gallery.models.length - 1].get('key')
+      _.extend dataFetchOptions,
+        startkey: startkey
+
       app.gallery.fetch
         data: [dataFetchOptions]
         add: true
         success: (collections, response) ->
+  , 500
