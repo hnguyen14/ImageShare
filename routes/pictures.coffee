@@ -20,7 +20,7 @@ module.exports = (app) ->
         im.resize
           srcPath: req.files.upload.path
           dstPath: "#{req.files.upload.path}_resized"
-          width: 500
+          width: 750
         , (err, stdout, stderr) ->
           return done err if err
           done null, "#{req.files.upload.path}_resized"
