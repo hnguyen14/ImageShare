@@ -1,3 +1,7 @@
+body {
+  background-color: #9AB4CB;
+}
+
 [class^='facebook-'] {
   background-image: url("/img/facebook_sprite.png");
 }
@@ -49,7 +53,7 @@
 }
 
 .image-caption a {
-  color: #86B8B1;
+  color: #182945;
 }
 
 .thumbnail img.poster-image {
@@ -69,7 +73,7 @@
   font-weight: bold;
   display: inline-block;
   margin-bottom: 5px;
-  color: #86B8B1;
+  color: #182945;
 }
 
 .timestamp {
@@ -92,16 +96,16 @@
 #main {
   margin-top: 60px;
   margin-bottom: 20px;
-  background-color: #F2D694;
+  background-color: #FBF6CE;
   padding: 20px;
   border-radius: 20px;
 }
 
 .navbar-inner {
-  background-image: -webkit-linear-gradient(top, #86B8B1, #77A49E); 
-  background-image: -moz-linear-gradient(top, #86B8B1, #77A49E); 
-  background-image: -o-linear-gradient(top, #86B8B1, #77A49E);
-  background-image: linear-gradient(top, #86B8B1, #77A49E);
+  background-image: -webkit-linear-gradient(top, #182945, #15243D); 
+  background-image: -moz-linear-gradient(top, #182945, #15243D); 
+  background-image: -o-linear-gradient(top, #182945, #15243D);
+  background-image: linear-gradient(top, #182945, #15243D);
   background-repeat: repeat-x;
 }
 
@@ -128,10 +132,10 @@
 }
 
 .hero-unit.footer {
-  background-image: -webkit-linear-gradient(top, #86B8B1, #77A49E); 
-  background-image: -moz-linear-gradient(top, #86B8B1, #77A49E); 
-  background-image: -o-linear-gradient(top, #86B8B1, #77A49E);
-  background-image: linear-gradient(top, #86B8B1, #77A49E);
+  background-image: -webkit-linear-gradient(top, #182945, #15243D); 
+  background-image: -moz-linear-gradient(top, #182945, #15243D); 
+  background-image: -o-linear-gradient(top, #182945, #15243D);
+  background-image: linear-gradient(top, #182945, #15243D);
   background-repeat: repeat-x;
   border-radius: 20px;
   padding: 20px;
@@ -162,7 +166,7 @@
 }
 
 .ribbon-front {
-  background-color: #9C3C3E;
+  background-color: #A1C436;
   height: 50px;
   color: #FFF;
   font-weight: bold;
@@ -176,7 +180,7 @@
 .ribbon-front img {
   margin: 3px 20px 0 0;
   width: 40px;
-  border: 2px solid #F2D694;
+  border: 2px solid #FBF6CE;
 }
 
 .ribbon-front span{
@@ -217,7 +221,7 @@
 .ribbon-edge-topleft,
 .ribbon-edge-bottomleft {
   left: -30px;
-  border-color: transparent #8C2328 transparent transparent;
+  border-color: transparent #90AF30 transparent transparent;
 }
 
 .ribbon-edge-topleft {
@@ -231,7 +235,7 @@
 .ribbon-edge-topright,
 .ribbon-edge-bottomright {
   left: 400px;
-  border-color: transparent transparent transparent #8C2328;
+  border-color: transparent transparent transparent #90AF30;
 }
 
 .ribbon-edge-topright {
@@ -248,7 +252,7 @@
   left: -50px;
   width: 30px;
   height: 60px;
-  background-color: #9C3C3E;	z-index: 0;
+  background-color: #A1C436;	z-index: 0;
 }
 
 .ribbon-back-right {
