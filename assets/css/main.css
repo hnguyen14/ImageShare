@@ -1,5 +1,5 @@
 body {
-  background-color: #9AB4CB;
+  background-color: #97CCEE;
 }
 
 [class^='facebook-'] {
@@ -84,9 +84,13 @@ body {
 }
 
 .picture {
-  border: 1px solid #CCC;
-  margin: 10px 10px;
+  border: 1px solid #CFCFD6;
+  margin: 9px 9px;
   background-color: white;
+}
+
+.picture:hover{
+  border-color: #182945;
 }
 
 .container {
@@ -98,6 +102,7 @@ body {
   margin-bottom: 20px;
   background-color: #FBF6CE;
   padding: 20px;
+  border: 2px solid #182945;
   border-radius: 20px;
 }
 

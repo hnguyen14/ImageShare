@@ -4,6 +4,7 @@
 #= require backbone.iobind
 #= require imagesLoaded
 #= require jquery.masonry.min
+#= require jquery.viewport.mini
 #= require moment.min
 #= require socket.io
 #= require twitter-text
@@ -143,7 +144,7 @@ $ ->
       reader.readAsDataURL @.files[0]
 
   $(window).scroll _.throttle ->
-    if $(window).scrollTop() == $(document).height() - $(window).height()
+    if $('.picture:below-the-fold').length > 0 && $('.picture:below-the-fold').length < 8
       startkey = app.gallery.models[app.gallery.models.length - 1].get('key')
       _.extend dataFetchOptions,
         startkey: startkey
