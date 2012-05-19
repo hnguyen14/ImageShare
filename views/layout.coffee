@@ -5,9 +5,11 @@ html ->
     link rel: 'stylesheet', href: '/bootstrap/css/bootstrap-responsive.min.css'
     link rel: 'stylesheet', href: '/lightbox/css/jquery.lightbox-0.4.css'
     text css 'main'
+    text css 'responsive'
     script src: '/javascripts/jquery-1.7.1.min.js'
     script src: '/lightbox/js/jquery.lightbox-0.4.js'
     script src: '/bootstrap/js/bootstrap.js'
+    meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
   body ->
     div '.navbar .navbar-fixed-top', ->
       div '.navbar-inner', ->
@@ -16,13 +18,14 @@ html ->
             'iShareMyPic'
           ul '.nav.nav-links', ->
             li ->
-              i '.icon-home .icon-white', ->
               a '.home', href: '/', ->
-                'Home'
+                i '.icon-home .icon-white', ->
+                span ->'Home'
             if @passport.user
               li ->
-                i '.icon-picture .icon-white', ->
-                a '.image-upload', href:'#', -> 'Upload An Image'
+                a '.image-upload', href:'#', ->
+                  i '.icon-picture .icon-white', ->
+                  span -> 'Upload an image'
           ul '.nav .pull-right', ->
             li ->
               if @passport.user

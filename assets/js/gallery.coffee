@@ -75,7 +75,7 @@ $ ->
 
   class PictureView extends Backbone.View
     tagName: 'div'
-    className: 'span3 picture thumbnail'
+    className: 'picture thumbnail'
 
     initialize: =>
        @model.bind 'change', @change

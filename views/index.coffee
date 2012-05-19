@@ -12,10 +12,10 @@ div '.container', ->
   div '.hero-unit.footer', ->
     p ->
       img '.email', src: '/email-icon.png', ->
-      '@ admin@iShareMyPic.com'
+      a href: 'mailto:admin@iShareMyPic.com', -> '@ admin'
     p ->
       img '.twitter', src: '/twitter-icon.png', ->
-      '@ iShareMyPic'
+      a href: 'https://twitter.com/#!/iShareMyPic', -> '@ iShareMyPic'
 
 div '.modal', id: 'imageUpload', ->
   form 'form-horizontal', id: 'pictureSubmit', enctype: 'multipart/form-data', action: '/pictures', method: 'post', ->

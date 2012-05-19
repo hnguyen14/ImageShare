@@ -42,8 +42,7 @@ body {
 }
 
 .image-link-container {
-  width: 95%;
-  margin: 5px auto 15px auto;
+  margin: 0 0 15px 0;
 }
 
 .image-caption {
@@ -85,8 +84,9 @@ body {
 
 .picture {
   border: 1px solid #CFCFD6;
-  margin: 9px 9px;
+  margin: 7px 7px;
   background-color: white;
+  width: 270px;
 }
 
 .picture:hover{
@@ -94,14 +94,14 @@ body {
 }
 
 .container {
- width: 1240px;
-} 
+ width: 1200px;
+}
 
 #main {
   margin-top: 60px;
   margin-bottom: 20px;
   background-color: #FBF6CE;
-  padding: 20px;
+  padding: 10px;
   border: 2px solid #182945;
   border-radius: 20px;
 }
@@ -125,6 +125,10 @@ body {
 .navbar .nav li a{ 
   display: inline-block;
   color: white;
+}
+
+.image-upload span, .home span{
+  margin-left: 3px;
 }
 
 .logged-in-user {
