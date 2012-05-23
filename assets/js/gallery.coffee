@@ -107,12 +107,12 @@ $ ->
     addPicture: (picture) =>
       if picture.get('updatedAt') > $('#gallery .picture time').first().attr('datetime')
         @$el.prepend new PictureView(model: picture).el
+        @$el.imagesLoaded ->
+          if $('#gallery').data('masonry')
+            $('#gallery').masonry 'reload',
+              isAnimated: true
       else
         @$el.append new PictureView(model: picture).el
-      @$el.imagesLoaded ->
-        if $('#gallery').data('masonry')
-          $('#gallery').masonry 'reload',
-            isAnimated: true
 
     render: =>
       @collection.each (picture) =>
@@ -144,13 +144,18 @@ $ ->
       reader.readAsDataURL @.files[0]
 
   $(window).scroll _.throttle ->
-    if $('.picture:below-the-fold').length > 0 && $('.picture:below-the-fold').length < 8
+    if $('.picture:below-the-fold').length > 0
       startkey = app.gallery.models[app.gallery.models.length - 1].get('key')
       _.extend dataFetchOptions,
         startkey: startkey
-
+      lengthBefore = app.gallery.length
       app.gallery.fetch
         data: [dataFetchOptions]
         add: true
         success: (collections, response) ->
-  , 500
+          if collections.length > lengthBefore
+            $('#gallery').imagesLoaded ->
+              if $('#gallery').data('masonry')
+                $('#gallery').masonry 'reload',
+                  isAnimated: true
+  , 2000
