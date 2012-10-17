@@ -2,8 +2,9 @@ cradle = require 'cradle'
 view = require '../couchdb/view'
 url = require 'url'
 
-database = process.env.DATABASE
-database += "_#{process.env.ENV}" unless process.env.ENV == 'production'
+database = process.env.DATABASE || 'imageshare'
+environment = process.env.ENV || 'development'
+database += "_#{environment}" unless process.env.ENV == 'production'
 
 cloudantUrl = process.env.CLOUDANT_URL || "http://localhost:5984/#{database}"
 cloudant = url.parse cloudantUrl

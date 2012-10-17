@@ -13,7 +13,7 @@ app.configure ->
   app.set "view engine", "coffee"
   app.register '.coffee', require('coffeekup').adapters.express
   app.use express.bodyParser
-    uploadDir: process.env.UPLOAD_DIR
+    uploadDir: process.env.UPLOAD_DIR || '/tmp/images'
   app.use express.methodOverride()
   app.use express.cookieParser()
   app.use express.session
@@ -41,4 +41,4 @@ app.dynamicHelpers
     data.user = req.user?.authHash
     return data
 
-app.listen process.env.PORT || 3000
+app.listen process.env.PORT || 3001
