@@ -272,3 +272,7 @@ body {
   height: 60px;
   z-index: 0;
 }
+
+.twitter {
+  height: 40px;
+}
