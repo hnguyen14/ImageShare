@@ -5,6 +5,7 @@ app = module.exports = express.createServer()
 params = require 'express-params'
 io = require('socket.io').listen app, {log: false}
 passport = require './config/facebook-passport'
+piler = require './config/piler'
 
 params.extend app
 
@@ -22,7 +23,8 @@ app.configure ->
   app.use passport.session()
   app.use app.router
   app.use express.static(__dirname + "/public")
-  app.use require('connect-assets')()
+  piler.js.bind app
+  piler.css.bind app
 
 app.configure "development", ->
   app.use express.errorHandler
@@ -40,5 +42,7 @@ app.dynamicHelpers
     data = {}
     data.user = req.user?.authHash
     return data
+  js: -> piler.js
+  css: -> piler.css
 
 app.listen process.env.PORT || 3001

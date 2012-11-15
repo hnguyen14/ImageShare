@@ -4,11 +4,8 @@ html ->
     link rel: 'stylesheet', href: '/bootstrap/css/bootstrap.min.css'
     link rel: 'stylesheet', href: '/bootstrap/css/bootstrap-responsive.min.css'
     link rel: 'stylesheet', href: '/lightbox/css/jquery.lightbox-0.4.css'
-    text css 'main'
-    text css 'responsive'
-    script src: '/javascripts/jquery-1.7.1.min.js'
-    script src: '/lightbox/js/jquery.lightbox-0.4.js'
-    script src: '/bootstrap/js/bootstrap.js'
+    link rel: 'stylesheet', href: '/css/main.css'
+    link rel: 'stylesheet', href: '/css/responsive.css'
     meta name: 'viewport', content: 'width=device-width, initial-scale=1.0'
   body ->
     div '.navbar .navbar-fixed-top', ->
