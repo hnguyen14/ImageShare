@@ -42,7 +42,6 @@ $ ->
       $('#main').append @galleryView.el
       @gallery.fetch()
 
-
   class Picture extends Backbone.Model
     idAttribute: '_id'
     urlRoot: 'picture'
