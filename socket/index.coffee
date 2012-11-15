@@ -1,5 +1,6 @@
 _ = require('underscore')._
 db = require '../config/cradle'
+
 Picture = require('../models/pictures')(db)
 User = require('../models/users')(db)
 
