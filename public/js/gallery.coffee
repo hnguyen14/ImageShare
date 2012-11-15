@@ -1,14 +1,3 @@
-#= require underscore
-#= require backbone
-#= require backbone.iosync
-#= require backbone.iobind
-#= require imagesLoaded
-#= require jquery.masonry.min
-#= require jquery.viewport.mini
-#= require moment.min
-#= require socket.io
-#= require twitter-text
-
 $ ->
   window.socket = Backbone.socket = socket = io.connect()
 
