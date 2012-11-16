@@ -1,8 +1,38 @@
 /* Landscape phones and down */
 @media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  #main {
+    margin-top: 0;
+    background-color: inherit;
+    padding: 0;
+    border: none;
+    border-radius: 0px;
+  }
+
+  .container.body {
+    margin: 0;
+    width: 100%;
+  }
+
+  .picture {
+    margin: 0 0 20px 0;
+    width: 100%;
+    padding: 0 0 10px 0;
+    border: none;
+  }
+
   .container {
     width: 322px;
   }
+
+  .navbar {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
   .navbar .nav.pull-right {
     float: right;
   }

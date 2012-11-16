@@ -1,4 +1,4 @@
-div '.container', ->
+div '.container.body', ->
   div '#main', ->
     div '.ribbon-wrapper', ->
       div '.ribbon-front', ->
