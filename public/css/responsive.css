@@ -17,11 +17,16 @@
     width: 100%;
   }
 
+  .hero-unit.footer {
+    border-radius: 0px;
+  }
+
   .picture {
     margin: 0 0 20px 0;
     width: 100%;
     padding: 0 0 10px 0;
     border: none;
+    border-radius: 0px;
   }
 
   .container {
