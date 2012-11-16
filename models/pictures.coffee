@@ -41,9 +41,9 @@ module.exports = (db) ->
       hashTags = (hashTag.toLowerCase() for hashTag in twitter.extractHashtags(caption))
       doc =
         type: 'Picture'
-        fullsizePath: "/images#{fullsize.substring(fullsize.lastIndexOf('/'), fullsize.length)}"
-        resizedPath: "/images#{resized.substring(resized.lastIndexOf('/'), resized.length)}"
-        thumbnailPath: "/images#{thumbnail.substring(thumbnail.lastIndexOf('/'), thumbnail.length)}"
+        fullsizePath: fullsize
+        resizedPath: resized
+        thumbnailPath: thumbnail
         caption: caption
         tags: hashTags
         createdAt: new Date()

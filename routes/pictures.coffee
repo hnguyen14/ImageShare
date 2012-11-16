@@ -2,31 +2,18 @@ db = require '../config/cradle'
 fs = require 'fs'
 im = require 'imagemagick'
 async = require 'async'
+cloudinary = require 'cloudinary'
 
 Picture = require('../models/pictures')(db)
 
 module.exports = (app) ->
   app.post '/pictures', (req, res, next) ->
-    async.parallel
-      thumbnail: (done) ->
-        im.resize
-          srcPath: req.files.upload.path
-          dstPath: "#{req.files.upload.path}_thumbnail"
-          width: 270
-        , (err, stdout, stderr) ->
-          return done err if err
-          done null, "#{req.files.upload.path}_thumbnail"
-      resized: (done) ->
-        im.resize
-          srcPath: req.files.upload.path
-          dstPath: "#{req.files.upload.path}_resized"
-          width: 750
-        , (err, stdout, stderr) ->
-          return done err if err
-          done null, "#{req.files.upload.path}_resized"
-    , (err, result) ->
-      if err
-        console.log 'ERR', err
-        res.redirect '/'
-      Picture.create req.user, req.files.upload.path, result.resized, result.thumbnail, req.body.caption, (err, picture) ->
+    cloudinary.uploader.upload req.files.upload.path, (result) ->
+      if result.public_id
+        thumbnail = cloudinary.url("#{result.public_id}.#{result.format}", width: 270)
+        resized = cloudinary.url("#{result.public_id}.#{result.format}", width: 750)
+        Picture.create req.user, result.url, resized, thumbnail, req.body.caption, (err, picture) ->
+          res.redirect '/'
+      else
+        console.log 'ERROR', res
         res.redirect '/'
