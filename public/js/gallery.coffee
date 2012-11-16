@@ -97,8 +97,7 @@ $ ->
         @$el.prepend new PictureView(model: picture).el
         @$el.imagesLoaded ->
           if $('#gallery').data('masonry')
-            $('#gallery').masonry 'reload',
-              isAnimated: true
+            $('#gallery').masonry 'reload'
       else
         @$el.append new PictureView(model: picture).el
 
@@ -106,8 +105,7 @@ $ ->
       @collection.each (picture) =>
         @addPicture picture
       @$el.imagesLoaded ->
-        $('#gallery').masonry
-          isAnimated: true
+        $('#gallery').masonry()
       @
 
   window.app = new App
@@ -144,6 +142,5 @@ $ ->
           if collections.length > lengthBefore
             $('#gallery').imagesLoaded ->
               if $('#gallery').data('masonry')
-                $('#gallery').masonry 'reload',
-                  isAnimated: true
+                $('#gallery').masonry 'reload'
   , 2000
